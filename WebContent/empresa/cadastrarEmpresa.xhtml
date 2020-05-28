@@ -1,0 +1,45 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/backoffice/templateBackoffice/template.xhtml">
+
+    <ui:define name="title">Cadastrar Empresa</ui:define>
+
+    <ui:define name="head"></ui:define>
+    <ui:define name="viewname">
+        <li><p:link outcome="/backoffice/dashboard">Cadastrar Empresa</p:link></li>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="layout-dashboard">
+            <div class="ui-g">
+                <div class="ui-g-12">
+	                <div class="card card-w-title">
+	                    <h1>Cadastrar Empresa</h1>
+	                    
+	                    <h:form id="form">
+		                    <p:panelGrid columns="4" layout="grid" styleClass="ui-panelgrid-blank form-group">
+		
+	                        
+		                       	<p:inputText  placeholder="Razão Social" id="razaosocial" value="#{empresas.empresa.razaoSocial}"/>
+		                       	
+		                       	<p:inputText  placeholder="Nome Fantasia" id="nomefantasia" value="#{empresas.empresa.nomeFantasia}"/>
+		                       	
+		                       	<p:inputText  placeholder="CNPJ" id="cnpj" value="#{empresas.empresa.cnpj}"/>
+
+		                    </p:panelGrid>	
+		                </h:form>                    
+		                   
+	                    <p:panelGrid columns="1" layout="grid">
+	                    	<p:commandButton action="#{empresas.salvar}" process="@form" update="@all" ajax="true" id="spbtnSalvar" value="Salvar" type="button" icon="fa fa-check"/>
+	                    	<p:commandButton action="#{empresas.cancelarCadastro}" process="@form" update="@all" ajax="true" id="spbtnCancelar" value="Cancelar" type="button" icon="fa fa-check"/>
+	                    </p:panelGrid>
+	                </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

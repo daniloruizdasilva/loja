@@ -1,0 +1,45 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/backoffice/templateBackoffice/template.xhtml">
+
+    <ui:define name="title">Listar Empresas</ui:define>
+
+    <ui:define name="head"></ui:define>
+    <ui:define name="viewname">
+        <li><p:link outcome="/backoffice/dashboard">Empresas Cadastradas</p:link></li>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="layout-dashboard">
+            <div class="ui-g">
+                <div class="ui-g-12">
+	                <div class="card card-w-title">
+	                    <h1>Empresas Cadastradas</h1>
+	                    
+	                    <p:dataTable id="dtEmpresas" var="empresa" value="#{listarEmpresas.listaEmpresa}">
+							<p:column headerText="Identificador">
+								<h:outputText value="#{empresa.id}" />
+							</p:column>
+							
+							<p:column headerText="Razão Social">
+								<h:outputText value="#{empresa.razaoSocial}" />
+							</p:column>
+							
+							<p:column headerText="Nome Fantasia">
+								<h:outputText value="#{empresa.nomeFantasia}" />
+							</p:column>
+							
+							<p:column headerText="CNPJ">
+								<h:outputText value="#{empresa.cnpj}" />
+							</p:column>
+							
+						</p:dataTable>
+	                </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
